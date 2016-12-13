@@ -15,5 +15,3 @@ FOUNDATION_EXPORT double soCallMeMaybeVersionNumber;
 FOUNDATION_EXPORT const unsigned char soCallMeMaybeVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <soCallMeMaybe/PublicHeader.h>
-
-
