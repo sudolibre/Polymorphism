@@ -41,15 +41,34 @@ enum Maybe<Element> : ExpressibleByNilLiteral {
     }
 }
 
-extension Maybe: Equatable {}
+//extension Maybe where Element: Equatable {
+//    
+//    static func ==(lhs: Maybe<Element>, rhs: Maybe<Element>) -> Bool {
+//        switch (lhs, rhs) {
+//        case (.some(let x), .some(let y)):
+//            return x == y
+//        case (.none, .none):
+//            return true
+//        case (.none, .some(_)), (.some(_), .none):
+//            return false
+//        }
+//    }
+//}
 
-func ==<Element>(lhs: Maybe<Element>, rhs: Maybe<Element>) -> Bool {
-    switch (lhs, rhs) {
-    case (.some(_), .some(_)):
-        return true
-    case (.none, .none):
-        return true
-    case (.none, .some(_)), (.some(_), .none):
-        return false
+
+extension Maybe where Element: Equatable {
+    
+    static func ==(lhs: Maybe<Element>, rhs: Maybe<Element>) -> Bool {
+        switch (lhs, rhs) {
+        case (.some(let x), .some(let y)):
+            return x == y
+        case (.none, .none):
+            return true
+        case (.none, .some(_)), (.some(_), .none):
+            return false
+        }
     }
 }
+
+
+
